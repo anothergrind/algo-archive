@@ -43,4 +43,14 @@ Output: [3,4,6,16,17]
 
 ## Solution
 
-Not solved yet — [`code.py`](code.py) is empty.
+See [`code.py`](code.py).
+
+Walks the array from index 1 and adds each element to the one before it, so every slot
+holds the running total by the time it is read. The accumulation happens in place, so
+no second array is allocated.
+
+- **Time:** O(n)
+- **Space:** O(1) extra, since `nums` is modified in place and returned
+
+> Note that this mutates the caller's list. LeetCode doesn't mind, but returning a new
+> array would leave the input untouched.
