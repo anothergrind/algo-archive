@@ -1,4 +1,4 @@
-# neetcode
+# algo-archive
 solving all neetcode problems in various programming languages (python for now, maybe c++ and java later)
 - [ ] neetcode 150
 
