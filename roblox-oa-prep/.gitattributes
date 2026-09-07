@@ -1,0 +1,3 @@
+# byte-exact test fixtures: keep LF in the worktree so `diff` against
+# program output works on every platform
+* text eol=lf
