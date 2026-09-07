@@ -1,0 +1,8 @@
+OPEN|acct_a|1000000
+OPEN|acct_b|0
+LIMIT|acct_a|300000
+XFER|t1|2024-09-06T09:00|acct_a|acct_b|100000
+XFER|t2|2024-09-06T17:00|acct_a|acct_b|100000
+XFER|t3|2024-09-06T18:00|acct_a|acct_b|150000
+XFER|t4|2024-09-07T11:00|acct_a|acct_b|100000
+XFER|t5|2024-09-10T09:00|acct_b|acct_a|150000
