@@ -1,0 +1,8 @@
+[SERVICE]
+api|6|1|900
+[SLOWEST]
+1|POST /v1/charges|900
+2|GET /v1/charges/{id}|40
+3|GET /v1/customers/{id}/sources/{id}|33
+[TOTALS]
+LINES|6|0|0

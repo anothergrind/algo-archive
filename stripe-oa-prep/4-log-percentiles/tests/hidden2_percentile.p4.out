@@ -1,0 +1,10 @@
+[SERVICE]
+svc_a|4|0|40
+svc_b|2|1|40
+svc_c|2|0|40
+[SLOWEST]
+1|GET /a|40
+2|GET /b|40
+3|GET /c|40
+[TOTALS]
+LINES|8|0|1

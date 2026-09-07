@@ -1,0 +1,10 @@
+2024-07-01T00:00:00.000Z INFO svc_a method=GET path=/a status=200 duration_ms=10 request_id=r1
+2024-07-01T00:00:00.000Z INFO svc_a method=GET path=/a status=200 duration_ms=20 request_id=r2
+2024-07-01T00:00:00.000Z DEBUG svc_a method=GET path=/a status=200 duration_ms=99999 request_id=r99
+2024-07-01T00:00:00.000Z INFO svc_a method=GET path=/a status=200 duration_ms=30 request_id=r3
+2024-07-01T00:00:00.000Z INFO svc_a method=GET path=/a status=200 duration_ms=40 request_id=r4
+2024-07-01T00:00:00.000Z INFO svc_b method=GET path=/b status=503 duration_ms=40 request_id=r5
+2024-07-01T00:00:00.000Z INFO svc_b method=GET path=/b status=200 duration_ms=5 request_id=r6
+2024-07-01T00:00:00.000Z INFO svc_c method=GET path=/c status=200 duration_ms=40 request_id=r7
+2024-07-01T00:00:00.000Z INFO svc_c method=GET path=/c status=200 duration_ms=1 request_id=r8
+2024-07-01T00:00:00.000Z INFO svc_c method=GET path=/c status=200 duration_ms=9999 request_id=r1

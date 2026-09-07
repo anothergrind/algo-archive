@@ -1,0 +1,11 @@
+2024-06-02T08:00:00.000Z INFO  api duration_ms=15 method=GET request_id=req_101 path=/v1/balance status=200
+2024-06-02T08:00:01.000Z DEBUG api method=GET path=/v1/balance status=200 duration_ms=999 request_id=req_102
+2024-06-02T08:00:02.000Z INFO api method=GET path=/v1/balance/ status=200 duration_ms=25 request_id=req_103
+2024-06-02T08:00:03.000Z INFO api method=GET path=/v1/balance?limit=10 status=200 duration_ms=35 request_id=req_104
+2024-06-02T08:00:04.000Z INFO api method=GET path=/v1/balance status=200 duration_ms=45 request_id=req_101
+2024-06-02T08:00:05.000Z WARN worker method=POST path=/v1/payouts status=502 duration_ms=1200 request_id=req_105
+2024-06-02T08:00:06.000Z ERROR worker method=POST path=/v1/payouts status=500 duration_ms=800 request_id=req_106
+2024-06-02T08:00:07.000Z INFO worker method=POST path=/v1/payouts status=200 duration_ms=100 request_id=req_107
+2024-06-02T08:00:08.000Z INFO api method=GET path=/v1/balance status=20X duration_ms=5 request_id=req_108
+2024-06-02T08:00:09.000Z INFO api method=GET status=200 duration_ms=5 request_id=req_109
+2024-06-02T08:00:10.000Z garbage

@@ -1,0 +1,8 @@
+[SERVICE]
+api|3|0|35
+worker|3|2|1200
+[SLOWEST]
+1|POST /v1/payouts|1200
+2|GET /v1/balance|35
+[TOTALS]
+LINES|6|3|1
