@@ -12,6 +12,7 @@ for the solution.
 | [`leetcode/`](leetcode/) | problems from The LeetCode Beginner's Guide |
 | [`synapse/`](synapse/) | synapse problems — themed takes on classic questions |
 | [`stripe-oa-prep/`](stripe-oa-prep/) | mock Stripe intern OAs — 4-part implementation problems |
+| [`roblox-oa-prep/`](roblox-oa-prep/) | mock Roblox intern OA — dsa, optimization puzzles, written |
 | [`algorthym/`](algorthym/) | TBD |
 
 ## neetcode 150
