@@ -33,6 +33,8 @@ Each problem folder holds:
   while solving.**
 - `SOLUTION.md` — approach, complexity, reference solution, and three hidden
   edge-case tests. Open only when you have an answer.
+- `mine.py` — **an empty stub for your own solution**, same stdin convention as the
+  reference. This is the file you write in.
 - `code.py` — the reference solution, reading stdin
 - `brute.py` — a deliberately naive oracle, written a different way on purpose
 - `fuzz_gen.py` — random input generator for differential testing
@@ -57,6 +59,29 @@ question with a worked weak answer and why it fails. Draft cold before opening
 `RUBRICS.md`.
 
 ---
+
+## Checking your own solutions
+
+Write your attempt in each problem's `mine.py`, then:
+
+```bash
+python roblox-oa-prep/check_mine.py             # mine.py vs every committed .out
+python roblox-oa-prep/check_mine.py session     # just the one problem
+python roblox-oa-prep/fuzz_mine.py session      # mine.py vs brute.py, 3000 random inputs
+```
+
+`fuzz_mine.py` is the one worth reaching for. Five committed test cases are five
+cases; the fuzzer throws thousands of small random inputs at your `solve()` and at an
+independently written brute force, and prints the first input where the two disagree.
+That is what catches a window boundary off by one or a tie-break you got backwards —
+and because the divergence it prints is a random input, it spoils nothing.
+
+`check_mine.py` prints the full diff for a failing `sample*` case but only the case
+*name* for a failing `hidden*` one, so you learn which edge case broke without being
+handed the answer `SOLUTION.md` is gating. Add `--show` to override that.
+
+Both need `solve()` to stay a plain function taking `lines` and returning a list of
+strings, which is how the stub ships.
 
 ## Verification
 

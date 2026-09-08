@@ -26,6 +26,8 @@ each folder has:
   input and output specs, and two worked samples
 - `SPOILERS.md` — the **gotchas** section naming every trap the secret tests probe,
   plus three hidden test cases with expected output
+- `mine.py` — **an empty stub for your own solution**, wired to the same stdin
+  and `<part>` argument convention as the reference
 - `code.py` — a working reference solution for all four parts
 - `tests/*.in` — the raw inputs
 - `tests/*.p<N>.out` — expected output for part `N` of that input
@@ -37,17 +39,27 @@ part 1 to a green run before reading part 2. That gating is the whole point of t
 format — it means your part 1 code has to be shaped so part 2 can extend it rather
 than replace it.
 
-Run your own attempt the same way the reference runs:
+Write your attempt in `mine.py`. It runs the same way the reference does:
 
 ```bash
-python your_solution.py 1 < stripe-oa-prep/1-fee-engine/tests/sample1.in
+cd stripe-oa-prep/1-fee-engine
+python mine.py 1 < tests/sample1.in
+python mine.py 2 < tests/sample1.in | diff - tests/sample1.p2.out
 ```
 
-Diff against the committed expectation:
+`check_mine.py` runs `mine.py` against every committed expectation. **Pass the part
+you are on** — with no part filter it reports all four, and the parts you have not
+written yet read as a wall of failures:
 
 ```bash
-python your_solution.py 2 < tests/sample1.in | diff - tests/sample1.p2.out
+python stripe-oa-prep/check_mine.py fee 1   # problem substring, then part
+python stripe-oa-prep/check_mine.py         # every problem, every part
 ```
+
+It prints the full diff for a failing `sample*` case, since those samples are worked
+in `README.md` anyway, but only the case *name* for a failing `hidden*` one — enough
+to tell you which edge case broke without handing you what `SPOILERS.md` is gating.
+Add `--show` when you want it to give up the answer.
 
 Note that a `tests/<name>.p<N>.out` file exists for every input at every part, but
 only the pairings named in each README are meaningful — later parts add record types
@@ -56,7 +68,8 @@ against a late part's input can legitimately crash.
 
 ## maintenance
 
-`check.py` re-runs every reference solution against every committed expectation:
+`check.py` re-runs every *reference* solution against every committed expectation
+(`check_mine.py`, above, is the one for your own work):
 
 ```bash
 python stripe-oa-prep/check.py
