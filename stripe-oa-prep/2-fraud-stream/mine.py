@@ -1,20 +1,65 @@
 """Dispute Radar -- your solution. All four parts live in here.
 
-usage: python mine.py <part>   # input on stdin
+usage: python mine.py <part>   # the input arrives on stdin
 
     python mine.py 1 < tests/sample1.in | diff - tests/sample1.p1.out
     python ../check_mine.py 2-fraud-stream 1
 
-Work part 1 to green before reading part 2 in README.md. Extend `solve`
-part by part rather than rewriting it -- that is the whole point of the format.
+Work part 1 to green before reading part 2 in README.md. Extend `solve` part by
+part rather than rewriting it -- that is the whole point of the format.
 """
 import sys
 
 
 def solve(part, lines):
-    """Return the output lines (no trailing newlines) for the given part."""
+    """Compute the answer for one part. Neither argument is anything you have to
+    set up -- the `__main__` block at the bottom of this file builds both and
+    hands them to you.
+
+    `part` is an int, 1 to 4: which part of README.md you are implementing. It
+    comes straight off the command line, so `python mine.py 3` calls this with
+    part == 3. It exists because all four parts share this one function, and
+    each part changes both the rules and the output format -- so branch on it:
+
+        if part == 1:
+            ...
+        elif part == 2:
+            ...
+
+    The parts are cumulative (part 3 is part 2 plus one more rule), so in
+    practice most of the body ends up shared and only the differences are
+    guarded, often as `if part >= 3:`.
+
+    `lines` is the whole of stdin, already read and split into a list of strings
+    with the trailing newlines stripped. You never touch stdin yourself. For
+    tests/sample1.in it is literally this list:
+
+        [
+            'THRESHOLD|acct_zeta|150',
+            'CHARGE|2024-03-01T09:00:00Z|ch_1|acct_alpha|10000',
+            'CHARGE|2024-03-01T09:05:00Z|ch_2|acct_alpha|100',
+            'CHARGE|2024-03-01T09:07:00Z|ch_3|acct_alpha|89900',
+            'CHARGE|2024-03-01T09:10:00Z|ch_4|acct_zeta|20000',
+            'CHARGE|2024-03-01T09:15:00Z|ch_5|acct_zeta|30000',
+            'DISPUTE|2024-03-02T11:00:00Z|ch_2',
+            'DISPUTE|2024-03-02T11:05:00Z|ch_4',
+        ]
+
+    Blank lines are kept, so skip them yourself if the format allows them.
+
+    Return a list of strings, one per line of output. Not one big string with
+    newlines in it, and do not print -- the bottom of the file joins your list
+    with "\n" and prints the result, so anything you print in here lands in the
+    middle of your answer and fails the diff. For the input above, part 1 wants
+    you to return exactly (this is tests/sample1.p1.out):
+
+        [
+            'acct_alpha|3|100000',
+            'acct_zeta|2|50000',
+        ]
+    """
     out = []
-    # TODO
+    # TODO -- build up `out`, one string per line of output
     return out
 
 

@@ -1,21 +1,45 @@
 """P2 Longest Play Session -- your solution.
 
-usage: python mine.py   # input on stdin
+usage: python mine.py   # the input arrives on stdin
 
     python mine.py < tests/sample1.in | diff - tests/sample1.out
     python ../../check_mine.py 2-longest-session
     python ../../fuzz_mine.py 2-longest-session   # vs brute.py over random inputs
-
-Keep `solve(lines)` pure and returning a list of strings -- fuzz_mine.py
-imports it directly and compares it against brute.py.
 """
 import sys
 
 
 def solve(lines):
-    """Return the output lines (no trailing newlines)."""
+    """Compute the answer. `lines` is not anything you have to set up -- the
+    `__main__` block at the bottom of this file builds it and hands it to you.
+
+    `lines` is the whole of stdin, already read and split into a list of strings
+    with the trailing newlines stripped. You never touch stdin yourself. For
+    tests/sample1.in it is literally this list:
+
+        [
+            '10 2',
+            'ob ob jb jb jb ad ad jb bs bs',
+        ]
+
+    Blank lines are kept, so skip them yourself if the format allows them.
+
+    Return a list of strings, one per line of output. Not one big string with
+    newlines in it, and do not print -- the bottom of the file joins your list
+    with "\n" and prints the result, so anything you print in here lands in the
+    middle of your answer and fails the diff. Even a one-number answer is a
+    one-element list of one string. For the input above (this is
+    tests/sample1.out):
+
+        [
+            '6',
+        ]
+
+    Keep this a plain function taking `lines` and returning a list: fuzz_mine.py
+    imports it directly and compares it against brute.py over random inputs.
+    """
     out = []
-    # TODO
+    # TODO -- build up `out`, one string per line of output
     return out
 
 

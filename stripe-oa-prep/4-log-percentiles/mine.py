@@ -1,20 +1,64 @@
 """Latency Report -- your solution. All four parts live in here.
 
-usage: python mine.py <part>   # input on stdin
+usage: python mine.py <part>   # the input arrives on stdin
 
     python mine.py 1 < tests/sample1.in | diff - tests/sample1.p1.out
     python ../check_mine.py 4-log-percentiles 1
 
-Work part 1 to green before reading part 2 in README.md. Extend `solve`
-part by part rather than rewriting it -- that is the whole point of the format.
+Work part 1 to green before reading part 2 in README.md. Extend `solve` part by
+part rather than rewriting it -- that is the whole point of the format.
 """
 import sys
 
 
 def solve(part, lines):
-    """Return the output lines (no trailing newlines) for the given part."""
+    """Compute the answer for one part. Neither argument is anything you have to
+    set up -- the `__main__` block at the bottom of this file builds both and
+    hands them to you.
+
+    `part` is an int, 1 to 4: which part of README.md you are implementing. It
+    comes straight off the command line, so `python mine.py 3` calls this with
+    part == 3. It exists because all four parts share this one function, and
+    each part changes both the rules and the output format -- so branch on it:
+
+        if part == 1:
+            ...
+        elif part == 2:
+            ...
+
+    The parts are cumulative (part 3 is part 2 plus one more rule), so in
+    practice most of the body ends up shared and only the differences are
+    guarded, often as `if part >= 3:`.
+
+    `lines` is the whole of stdin, already read and split into a list of strings
+    with the trailing newlines stripped. You never touch stdin yourself. For
+    tests/sample1.in it is literally this list:
+
+        [
+            '2024-06-01T10:00:00.100Z INFO api method=GET path=/v1/charges/ch_1A2b3C status=200 duration_ms=12 request_id=req_001',
+            '2024-06-01T10:00:00.200Z INFO api method=GET path=/v1/charges/ch_9zZ status=200 duration_ms=40 request_id=req_002',
+            '2024-06-01T10:00:00.300Z INFO api method=GET path=/v1/charges/ch_x status=404 duration_ms=7 request_id=req_003',
+            '2024-06-01T10:00:00.400Z INFO api method=POST path=/v1/charges status=200 duration_ms=250 request_id=req_004',
+            '2024-06-01T10:00:00.500Z INFO api method=POST path=/v1/charges status=500 duration_ms=900 request_id=req_005',
+            '2024-06-01T10:00:00.600Z INFO api method=GET path=/v1/customers/cus_42/sources/12 status=200 duration_ms=33 request_id=req_006',
+        ]
+
+    Blank lines are kept, so skip them yourself if the format allows them.
+
+    Return a list of strings, one per line of output. Not one big string with
+    newlines in it, and do not print -- the bottom of the file joins your list
+    with "\n" and prints the result, so anything you print in here lands in the
+    middle of your answer and fails the diff. For the input above, part 1 wants
+    you to return exactly (this is tests/sample1.p1.out):
+
+        [
+            'GET /v1/charges/{id}|3',
+            'POST /v1/charges|2',
+            'GET /v1/customers/{id}/sources/{id}|1',
+        ]
+    """
     out = []
-    # TODO
+    # TODO -- build up `out`, one string per line of output
     return out
 
 
