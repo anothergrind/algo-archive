@@ -10,6 +10,7 @@ usage: python roblox-oa-prep/fuzz_mine.py [problem-substring] [iterations]
 
     python roblox-oa-prep/fuzz_mine.py                # all five, 3000 each
     python roblox-oa-prep/fuzz_mine.py session        # just 2-longest-session
+    python roblox-oa-prep/fuzz_mine.py 2              # same, matched by number
     python roblox-oa-prep/fuzz_mine.py session 20000  # harder
 
 An empty stub returns [] and diverges on iteration 0 -- that is expected, not a
@@ -25,8 +26,8 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 args = sys.argv[1:]
-name_filter = args[0] if args and not args[0].isdigit() else None
-iters = next((int(a) for a in args if a.isdigit()), 3000)
+name_filter = args[0] if args else None   # `4` matches 4-tower-builds, not an iteration count
+iters = int(args[1]) if len(args) > 1 else 3000
 
 
 def load(path, name):

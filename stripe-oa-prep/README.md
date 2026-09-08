@@ -64,7 +64,9 @@ Add `--show` when you want it to give up the answer.
 Note that a `tests/<name>.p<N>.out` file exists for every input at every part, but
 only the pairings named in each README are meaningful — later parts add record types
 and guarantees that earlier parts are promised never to see, so running an early part
-against a late part's input can legitimately crash.
+against a late part's input can legitimately crash. `check_mine.py` skips the
+pairings whose expectation is one of those crashes, but scores every other one — so a
+`FAIL` on a pairing your part's README does not name is not automatically your bug.
 
 ## maintenance
 

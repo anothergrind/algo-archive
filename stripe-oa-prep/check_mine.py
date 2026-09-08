@@ -26,6 +26,9 @@ args = [a for a in sys.argv[1:] if a != "--show"]
 show = "--show" in sys.argv[1:]
 name_filter = args[0] if args else None
 part_filter = int(args[1]) if len(args) > 1 else None
+if part_filter is not None and part_filter not in (1, 2, 3, 4):
+    print("part must be 1-4, got %d" % part_filter)
+    sys.exit(2)
 
 dirs = [d for d in sorted(glob.glob(os.path.join(ROOT, "*", "")))
         if os.path.exists(d + "mine.py")
