@@ -1,3 +1,0 @@
-GET /v1/charges/{id}|3
-POST /v1/charges|2
-GET /v1/customers/{id}/sources/{id}|1
